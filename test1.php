@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>test1</title>
+<title>RMUTTwalkingstreet</title>
 <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="jquery-3.3.1.min.js"></script>
