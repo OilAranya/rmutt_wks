@@ -55,23 +55,23 @@
 	</button>
 	<div id="navbarCollapse" class="collapse navbar-collapse">		
 		<div class="navbar-nav ml-auto ">
-			<a href="http://localhost/rmutt_wks_new/main.php" class="nav-item nav-link active"><i class="fa fa-home"></i>หน้าแรก</a>
+			<a href="http://localhost/rmutt_wks/main.php" class="nav-item nav-link active"><i class="fa fa-home"></i>หน้าแรก</a>
 			<div class="nav-item dropdown">
 			<a href="#" data-toggle="dropdown" class="nav-item nav-link active dropdown-toggle"><i class="fa fa-shopping-bag"></i>หมวดหมู่ร้านค้า</a>
 				<div class="dropdown-menu">					
-						<a href="http://localhost/rmutt_wks_new/food.php" class="dropdown-item">อาหาร</a>
-						<a href="http://localhost/rmutt_wks_new/clothing.php" class="dropdown-item">เสื้อผ้า</a>
-						<a href="http://localhost/rmutt_wks_new/shoes.php" class="dropdown-item">รองเท้า</a>
-						<a href="http://localhost/rmutt_wks_new/bag.php" class="dropdown-item">กระเป๋า</a>
-						<a href="http://localhost/rmutt_wks_new/accessories.php" class="dropdown-item">เครื่องประดับ</a>
-						<a href="http://localhost/rmutt_wks_new/animal.php" class="dropdown-item">สัตว์/ต้นไม้</a>
-						<a href="http://localhost/rmutt_wks_new/electronics.php" class="dropdown-item">อุกรณ์อิเล็กทรอนิกส์</a>
-						<a href="http://localhost/rmutt_wks_new/Other.php" class="dropdown-item">อื่นๆ</a>
+						<a href="http://localhost/rmutt_wks/food.php" class="dropdown-item">อาหาร</a>
+						<a href="http://localhost/rmutt_wks/clothing.php" class="dropdown-item">เสื้อผ้า</a>
+						<a href="http://localhost/rmutt_wks/shoes.php" class="dropdown-item">รองเท้า</a>
+						<a href="http://localhost/rmutt_wks/bag.php" class="dropdown-item">กระเป๋า</a>
+						<a href="http://localhost/rmutt_wks/accessories.php" class="dropdown-item">เครื่องประดับ</a>
+						<a href="http://localhost/rmutt_wks/animal.php" class="dropdown-item">สัตว์/ต้นไม้</a>
+						<a href="http://localhost/rmutt_wks/electronics.php" class="dropdown-item">อุกรณ์อิเล็กทรอนิกส์</a>
+						<a href="http://localhost/rmutt_wks/Other.php" class="dropdown-item">อื่นๆ</a>
 					</div>
 			</div>&nbsp;
-			<a href="http://localhost/rmutt_wks_new/map.php" class="nav-item nav-link active"><i class="fa fa-map"></i>แผนที่</a>
+			<a href="http://localhost/rmutt_wks/map.php" class="nav-item nav-link active"><i class="fa fa-map"></i>แผนที่</a>
 			<a href="#" class="nav-item nav-link active"><i class="fa fa-thumbs-up"></i>รีวิว</a>
-			<a href="http://localhost/rmutt_wks_new/contact.php" class="nav-item nav-link active"><i class="fa fa-exclamation-triangle"></i>แจ้งปัญหา</a>
+			<a href="http://localhost/rmutt_wks/contact.php" class="nav-item nav-link active"><i class="fa fa-exclamation-triangle"></i>แจ้งปัญหา</a>
  		</div>
         <div class="navbar-nav ml-auto">
 			<div class="nav-item dropdown login-dropdown">
