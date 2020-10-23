@@ -211,11 +211,7 @@ a:hover {
 							// 	}
 
 
-<<<<<<< HEAD
-							// ?>
-=======
 							?> 
->>>>>>> b0157065040a126825d6a9044560d98594ae24e1
 								<form action="login.php" method="post">
 									<div class="form-group">
 										<div class="input-group">
