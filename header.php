@@ -60,7 +60,7 @@ body {
 }
 .form-control {
 	box-shadow: none;
-	border-radius: 10px;
+	border-radius: 5px;
 	border-color: #dfe3e8;
 }
 .navbar {
