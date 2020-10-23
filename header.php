@@ -126,7 +126,7 @@
 								}
 
 
-							?>
+							?> 
 								<form action="login.php" method="post">
 									<div class="form-group">
 										<div class="input-group">
