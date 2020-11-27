@@ -1,4 +1,5 @@
 
+55555555
 <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <!-- Left navbar links -->
@@ -49,6 +50,19 @@
               </li>
 
               <li class="nav-item has-treeview">
+                <a href="#" class="nav-link">
+                  <p>หมวดหมู่ร้านค้า</p>
+                </a>
+                <a class="dropdown-item" href="createfood.php">อาหาร</a>
+                <a class="dropdown-item" href="#">เสื้อผ้า</a>
+                <a class="dropdown-item" href="#">รองเท้า</a>
+                <a class="dropdown-item" href="#">กระเป๋า</a>
+                <a class="dropdown-item" href="#">เครื่องประดับ</a>
+                <a class="dropdown-item" href="#">สัตว์/ต้นไม้</a>
+                <a class="dropdown-item" href="#">อุปกรณ์อิเล็กทรอนิกส์</a>
+              </li>
+
+              <li class="nav-item has-treeview">
                 <a href="general.php" class="nav-link">
                   <p>ตารางข้อมูลสมาชิก</p>
                 </a> 
@@ -68,6 +82,16 @@
               <li class="nav-item has-treeview">
                 <a href="map.php" class="nav-link">
                   <p>แผนที่</p>
+                </a>
+              </li>
+              <li class="nav-item has-treeview">
+                <a href="#" class="nav-link">
+                  <p>รีวิว</p>
+                </a>
+              </li>
+              <li class="nav-item has-treeview">
+                <a href="#" class="nav-link">
+                  <p>แจ้งปัญหา</p>
                 </a>
               </li>
             </ul>
