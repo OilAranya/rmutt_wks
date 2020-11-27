@@ -5,7 +5,7 @@
     $RESULT = mysqli_query($conn,$SQL);
     $num_rows = mysqli_num_rows($RESULT);
     if($num_rows !=0){
-        echo "<script>alert('หมายเลขบัตรประชาชนนี้ได้เป็นสมาชิกแล้ว! กรุณาตรวจสอบขอมูลของท่าน');</script>";
+        echo "<script>alert('อีเมล์นี้ได้ถูกใช้งานไปแล้ว! กรุณาตรวจสอบขอมูลของท่าน');</script>";
 		header('Refresh:0; url=main.php');
     }else{
         $sql1= "INSERT INTO user (username, password, firstname, lastname, userlevel, prefix, tel) 
