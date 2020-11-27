@@ -252,11 +252,11 @@ a:hover {
 			<div class="modal-body">  
 				<from id="userregister" name="userregister" method="get" action="register.php">  
 					<div class="row">	
-						<!-- <div class="col-sm-12">
+						<div class="col-sm-12">
 							<div class="form-group">
 							<img src="images/5.jpg" alt="" width="650" height="300">
 							</div>
-						</div> -->
+						</div>
 						<figure>
 							<img src="/lms_thoresen/themes/template2/images/thumbnail-profile.png" class="gambar img-responsive img-thumbnail" name="item-img-output" id="item-img-output">
 							<figcaption>
