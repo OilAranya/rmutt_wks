@@ -1,9 +1,14 @@
-<?php 
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$db="db_rmutt_wks"; 
 
-    $conn = mysqli_connect("localhost", "root", "", "db_rmutt_wks");
+// Create connection
+$conn = new mysqli($servername, $username, $password, $db);
 
-    if (!$conn) {
-        die("Failed to connec to databse " . mysqli_error($conn));
-    }
-
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
 ?>

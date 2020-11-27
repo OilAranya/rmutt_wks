@@ -236,118 +236,126 @@ a:hover {
 		</div>
 		<div class="navbar-nav ml-auto">
 			<div class="nav-item dropdown register-dropdown">
-                <a href="#register"  data-toggle="modal"  class="btn btn-warning"><i class="fa fa-user"></i>สมัครสมาชิก</a>
-				<!-- Modal register -->   
-				<div id="register" class="modal fade text-dark">
-					<div class="modal-dialog modal-register modal-lg">
-						<div class="modal-content">
-							<div class="modal-header">				
-							<h2><i class="fa fa-user-plus"></i>สมัครสมาชิก</h2>
-								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-							</div>
-							<div class="modal-body">   
-								<form>
-									<div class="row">	
-										<div class="col-sm-12">
-											<div class="form-group">
-											<img src="images/5.jpg" alt="" width="650" height="300">
-											</div>
-										</div>
-									</div>
-									<br>
-									<div class="row">
-										<div class="col-sm-2">
-											<div class="form-group">
-												<label for="prefix">คำนำหน้า</label>
-												<select class="form-control" id="prefix" >
-													<!-- <option>--เลือก--</option> -->
-													<option>นาย</option>
-													<option>นาง</option>
-													<option>นางสาว</option>									
-												</select>
-											</div>
-										</div>
-										<div class="col-sm-5">
-											<div class="form-group">
-												<label for="firstname">ชื่อ</label>
-												<input type="text" class="form-control" id="inputfirstname" required>
-											</div>
-										</div>
-										<div class="col-sm-5">
-											<div class="form-group">
-												<label for="lastname">นามสกุล</label>
-												<input type="text" class="form-control" id="inputlastname" required>
-											</div>
-										</div>
-									</div>
-									<div class="row">	
-										<div class="col-sm-12">
-											<div class="form-group">
-												<label for="username">อีเมลล์</label>
-												<input type="text" class="form-control"  name="username" id="username"type="text" maxlength="255" placeholder="name@example.com" required>
-											</div>
-										</div>
-									</div>
-									<div class="row">	
-										<div class="col-sm-6">
-											<div class="form-group">
-												<label for="password">รหัสผ่าน</label>
-												<input type="password" class="form-control" maxlength="8" name="password" id="password" type="password" placeholder="อย่างน้อย 8 ตัว" required>
-											</div>
-										</div>	
-										<div class="col-sm-6">
-											<div class="form-group">
-												<label for="confirmpassword">ยืนยันรหัสผ่าน</label>
-												<input type="password" class="form-control" maxlength="8" name="password" id="password" type="password" placeholder="ยืนยันรหัสผ่านอีกครั้ง" required>
-											</div>
-										</div>
-									</div>
-									<div class="row">	
-										<div class="col-sm-6">
-											<div class="form-group">
-												<label for="tel">เบอร์โทรศัพท์</label>
-												<input type="text" class="form-control" name="tel" id="tel"onkeypress="return check_number()" maxlength="10" required>
-											</div>
-										</div>
-									</div>
-									<br>
-									<div class="row">
-										<button type="submit" class="btn btn-dark btn-lg btn-block ">สมัครสมาชิก</button>
-									</div>
-									<br>
-								</form>
-							</div>
-						</div>
-					</div>
-				</div> 
+                <a href="#register"  data-toggle="modal"  class="btn btn-warning"><i class="fa fa-user"></i>สมัครสมาชิก</a>	
             </div>	
 		</div>
 	</div>
-	<div class="navbar-nav ml-auto">
-		<div class="nav-item dropdown password1234-dropdown">
-			<div id="password1234" class="modal fade">			
-				<div class="modal-dialog modal-password">				
-					<div class="modal-content">				
-						<div class="modal-header  ">				
-						<h2 class="text-dark"><i class="fa fa-unlock-alt"></i>ลืมรหัสผ่าน</h2>
-							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+<!-- Modal register -->   
+
+<div id="register" class="modal fade text-dark">
+	<div class="modal-dialog modal-register modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">				
+			<h2><i class="fa fa-user-plus"></i>สมัครสมาชิก</h2>
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			</div>
+			<div class="modal-body">  
+				<from id="userregister" name="userregister" method="get" action="register.php">  
+					<div class="row">	
+						<!-- <div class="col-sm-12">
+							<div class="form-group">
+							<img src="images/5.jpg" alt="" width="650" height="300">
+							</div>
+						</div> -->
+						<figure>
+							<img src="/lms_thoresen/themes/template2/images/thumbnail-profile.png" class="gambar img-responsive img-thumbnail" name="item-img-output" id="item-img-output">
+							<figcaption>
+								<div class="btn btn-default btn-uploadimg"><i class="fa fa-camera"></i> Select picture </div>
+							</figcaption>
+						</figure>
+					</div>
+					<br>
+					<div class="row">
+						<div class="col-sm-2">
+							<div class="form-group">
+								<label for="prefix">คำนำหน้า</label>
+								<select type ="text"class="form-control" name="prefix" id="prefix" >
+									<!-- <option>--เลือก--</option> -->
+									<option>นาย</option>
+									<option>นาง</option>
+									<option>นางสาว</option>									
+								</select>
+							</div>
 						</div>
-						<div class="modal-body">
-							<form >
-							<center><p class="text-danger">* กรุณากรอกอีเมลล์ระบบจะทำการส่งรหัสไปทางอีเมลล์ของท่าน *</p></center>
-								<div class="form-group row">
-									<label for="inputemail" class=" text-dark"><h5>อีเมลล์</h5></label>
-									<div class="col-sm-10">
-										<input type="email" class="form-control" id="inputemail" placeholder="email@example.com" required>
-									</div>
-								</div>
-								<center><button type="submit" class="btn btn-dark btn-lg "><i class="fa fa-paper-plane-o"></i>ส่ง</button></center>
-							</form>
+						<div class="col-sm-5">
+							<div class="form-group">
+								<label for="firstname">ชื่อ</label>
+								<input type="text" class="form-control"  name="firstname" id="inputfirstname" required>
+							</div>
+						</div>
+						<div class="col-sm-5">
+							<div class="form-group">
+								<label for="lastname">นามสกุล</label>
+								<input type="text" class="form-control" name="lastname"  id="inputlastname" required>
+							</div>
 						</div>
 					</div>
-				</div> 
+					<div class="row">	
+						<div class="col-sm-12">
+							<div class="form-group">
+								<label for="username">อีเมลล์</label>
+								<input type="text" class="form-control"  name="email" id="username"type="text" maxlength="255" placeholder="name@example.com" required>
+							</div>
+						</div>
+					</div>
+					<div class="row">	
+						<div class="col-sm-6">
+							<div class="form-group">
+								<label for="password">รหัสผ่าน</label>
+								<input type="password" class="form-control" maxlength="8" name="password" id="password" type="password" placeholder="อย่างน้อย 8 ตัว" required>
+							</div>
+						</div>	
+						<div class="col-sm-6">
+							<div class="form-group">
+								<label for="confirmpassword">ยืนยันรหัสผ่าน</label>
+								<input type="password" class="form-control" maxlength="8" name="password1" id="password" type="password" placeholder="ยืนยันรหัสผ่านอีกครั้ง" required>
+							</div>
+						</div>
+					</div>
+					<div class="row">	
+						<div class="col-sm-6">
+							<div class="form-group">
+								<label for="tel">เบอร์โทรศัพท์</label>
+								<input type="text" class="form-control" name="tel" id="tel"onkeypress="return check_number()" maxlength="10" required>
+							</div>
+						</div>
+					</div>
+					<br>
+					<div class="row">
+						<button type="submit" class="btn btn-dark btn-lg btn-block ">สมัครสมาชิก</button>
+					</div>
+					<br>
+				</form>
 			</div>
 		</div>
 	</div>
+</div>
+<div class="navbar-nav ml-auto">
+	<div class="nav-item dropdown password1234-dropdown">
+		<div id="password1234" class="modal fade">			
+			<div class="modal-dialog modal-password">				
+				<div class="modal-content">				
+					<div class="modal-header  ">				
+					<h2 class="text-dark"><i class="fa fa-unlock-alt"></i>ลืมรหัสผ่าน</h2>
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					</div>
+					<div class="modal-body">
+						<form >
+						<center><p class="text-danger">* กรุณากรอกอีเมลล์ระบบจะทำการส่งรหัสไปทางอีเมลล์ของท่าน *</p></center>
+							<div class="form-group row">
+								<label for="inputemail" class=" text-dark"><h5>อีเมลล์</h5></label>
+								<div class="col-sm-10">
+									<input type="email" class="form-control" id="inputemail" placeholder="email@example.com" required>
+								</div>
+							</div>
+							<center><button type="submit" class="btn btn-dark btn-lg "><i class="fa fa-paper-plane-o"></i>ส่ง</button></center>
+						</form>
+					</div>
+				</div>
+			</div> 
+		</div>
+	</div>
+</div>
 </nav>
+</body>
 </html>

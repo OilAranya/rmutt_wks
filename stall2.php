@@ -13,7 +13,7 @@
     </script>
 </head>
 <body>
-<?php include './header.php';?>
+<?php include './userp.php';?>
 <!-- ---------------------content body---------------------------------------------------------- -->
 <!-- <br>
 <center>
@@ -54,7 +54,7 @@
 
 <br>
 <center>
-<div class=" col-sm-7  mx-auto" >
+<div class=" col-sm-8  mx-auto" >
 	<div class="card">		
     <br>
 		<center><class="card-text"><h4>หลักฐานการชำระเงิน</h4></center>

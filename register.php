@@ -1,76 +1,28 @@
 <?php 
+    include  "connection.php";
 
-    session_start();
+    $SQL = "SELECT * FROM `user` WHERE `username` = '".trim($_GET['email'])."'";
+    $RESULT = mysqli_query($conn,$SQL);
+    $num_rows = mysqli_num_rows($RESULT);
+    if($num_rows !=0){
+        echo "<script>alert('หมายเลขบัตรประชาชนนี้ได้เป็นสมาชิกแล้ว! กรุณาตรวจสอบขอมูลของท่าน');</script>";
+		header('Refresh:0; url=main.php');
+    }else{
+        $sql1= "INSERT INTO user (username, password, firstname, lastname, userlevel, prefix, tel) 
+		VALUES ('".trim($_GET['email'])."', '".trim($_GET['password'])."', '".trim($_GET['firstname'])."', '".trim($_GET['lastname'])."', 'b', '".trim($_GET['prefix'])."', '".trim($_GET['tel'])."');";
+		$query1 = mysqli_query($conn,$sql1);
 
-    require_once "connection.php";
 
-    if (isset($_POST['submit'])) {
-
-        $username = $_POST['username'];
-        $password = $_POST['password'];
-        $firstname = $_POST['firstname'];
-        $lastname = $_POST['lastname'];
-
-        $user_check = "SELECT * FROM user WHERE username = '$username' LIMIT 1";
-        $result = mysqli_query($conn, $user_check);
-        $user = mysqli_fetch_assoc($result);
-
-        if ($user['username'] === $username) {
-            echo "<script>alert('Username already exists');</script>";
-        } else {
-            $passwordenc = md5($password);
-
-            $query = "INSERT INTO user (username, password, firstname, lastname, userlevel)
-                        VALUE ('$username', '$passwordenc', '$firstname', '$lastname', 'm')";
-            $result = mysqli_query($conn, $query);
-
-            if ($result) {
-                $_SESSION['success'] = "Insert user successfully";
-                header("Location: index.php");
-            } else {
-                $_SESSION['error'] = "Something went wrong";
-                header("Location: index.php");
-            }
-        }
+		if ($query1){
+			echo"<script> alert('สมัครสมาชิกสำเร็จเรียบร้อยแล้ว');</script>";
+			header('Refresh:0; url=main.php');
+		  }
+		  else{
+			echo"<script> alert('สมัครสมาชิกไม่สำเร็จ! กรุณาลองใหม่อีกครั้ง');</script>";
+			header('Refresh:0; url=main.php');
+		  }
 
     }
-
-
+   
+    mysqli_close($conn); 
 ?>
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Register Page</title>
-
-    <link rel="stylesheet" href="style.css">
-
-</head>
-<body>
-
-    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-    
-        <label for="username">Username</label>
-        <input type="text" name="username" placeholder="Enter your username" required>
-        <br>
-        <label for="password">Password</label>
-        <input type="password" name="password" placeholder="Enter your password" required>
-        <br>
-        <label for="firstname">Firstname</label>
-        <input type="text" name="firstname" placeholder="Enter your firstname" required>
-        <br>
-        <label for="lastname">Lastname</label>
-        <input type="text" name="lastname" placeholder="Enter your lastname" required>
-        <br>
-        <input type="submit" name="submit" value="Submit">
-    
-    </form>
-
-    <a href="index.php">Go back to index</a>
-    
-</body>
-</html>

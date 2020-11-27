@@ -6,7 +6,9 @@
 <title>RMUTTwalkingstreet</title>
 
 <body>
-<?php include './header.php';?>
+<?php include './userp.php';?>
+
+<body>
 <!-- ---------------------content body---------------------------------------------------------- -->
 <br>
 <div class="card col-sm-7  col-xs-10 mx-auto">
