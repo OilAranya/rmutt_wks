@@ -1,5 +1,3 @@
-
-
 <!---------------------- register -------------------->
 <?php 
 
@@ -98,8 +96,8 @@ body {
 .row {
     display: flex;
     flex-wrap: wrap;
-    margin-right: 50px;
-    margin-left: 50px;
+    margin-right: 20px;
+    margin-left: 20px;
 }
 .btn{
     margin-right: 0px;
@@ -161,77 +159,6 @@ a:hover {
         <div class="navbar-nav ml-auto">
 			<div class="nav-item dropdown login-dropdown">
                 <a href="#login" data-toggle="modal" class="btn btn-outline-warning"><i class="fa fa-sign-in"></i>เข้าสู่ระบบ</a>
-                <!-- Modal login -->   
-			
-				<div id="login" class="modal fade">
-					<div class="modal-dialog modal-login">
-						<div class="modal-content">
-							<div class="modal-header">				
-								<h2 class="text-dark"><i class="fa fa-user-circle-o" ></i>เข้าสู่ระบบ</h2>
-								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-							</div>
-							<div class="modal-body">
-							<?php 
-
-							// 	session_start();
-
-							// 	if (isset($_POST['username'])) {
-
-							// 		include('connection.php');
-
-							// 		$username = $_POST['username'];
-							// 		$password = $_POST['password'];
-							// 		$passwordenc = md5($password);
-
-							// 		$query = "SELECT * FROM user WHERE username = '$username' AND password = '$passwordenc'";
-
-							// 		$result = mysqli_query($conn, $query);
-
-							// 		if (mysqli_num_rows($result) == 1) {
-
-							// 			$row = mysqli_fetch_array($result);
-
-							// 			$_SESSION['userid'] = $row['id'];
-							// 			$_SESSION['user'] = $row['firstname'] . " " . $row['lastname'];
-							// 			$_SESSION['userlevel'] = $row['userlevel'];
-
-							// 			if ($_SESSION['userlevel'] == 'a') { 
-							// 				header("Location: admin_page.php");
-							// 			}
-
-							// 			if ($_SESSION['userlevel'] == 'm') {
-							// 				header("Location: stall.php");
-							// 			}
-							// 		} else {
-							// 			echo "<script>alert('User หรือ Password ไม่ถูกต้อง);</script>";
-							// 		}
-
-							// 	} else {
-							// 		header("Location: index.php");
-							// 	}
-
-
-							?> 
-								<form action="login.php" method="post">
-									<div class="form-group">
-										<div class="input-group">
-											<input type="email" class="form-control " name="email" placeholder="name@example.com" required>
-										</div>
-									</div>
-									<div class="form-group">
-										<div class="input-group">
-											<input type="password" class="form-control" maxlength="8" name="password" placeholder="Password" required>
-										</div>
-									</div>
-									<center><button type="submit" class="btn btn-dark btn-lg btn-block ">เข้าสู่ระบบ</button></center><br>
-									<center><p><a href="#password1234" data-toggle="modal"  class="text-primary"data-dismiss="modal" aria-hidden="true">ลืมรหัสผ่าน?</a></p></center>
-									<center><p class="text-danger">* สำหรับผู้ที่ประสงค์จะจองพื้นที่ขายสินค้าภายในตลาด *</p></center>
-									<center><p class="text-danger">RMUTT Walking Street</p></center>
-								</form>
-							</div>
-						</div>
-					</div>
-				</div> 
 			</div>
 		</div>
 		<div class="navbar-nav ml-auto">
@@ -240,96 +167,79 @@ a:hover {
             </div>	
 		</div>
 	</div>
-<!-- Modal register -->   
+</nav>
+</body>
+</html>
+ <!-- Modal login -->   		
+ <div id="login" class="modal fade">
+    <div class="modal-dialog modal-login">
+        <div class="modal-content">
+            <div class="modal-header">				
+                <h2 class="text-dark"><i class="fa fa-user-circle-o" ></i>เข้าสู่ระบบ</h2>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="modal-body">
+            <?php 
 
-<div id="register" class="modal fade text-dark">
-	<div class="modal-dialog modal-register modal-lg">
-		<div class="modal-content">
-			<div class="modal-header">				
-				<h2><i class="fa fa-user-plus"></i>สมัครสมาชิก</h2>
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-			</div>
-			<div class="modal-body">  
-				<from id="userregister" name="userregister" method="get" action="register.php">  
-					<div class="row">	
-						<div class="col-sm-12">
-							<div class="form-group">
-								<img src="images/5.jpg" alt="" width="650" height="300">
-							</div>
-						</div>
-						<figure>
-							<img src="/lms_thoresen/themes/template2/images/thumbnail-profile.png" class="gambar img-responsive img-thumbnail" name="item-img-output" id="item-img-output">
-								<figcaption>
-									<div class="btn btn-default btn-uploadimg"><i class="fa fa-camera"></i> Select picture </div>
-								</figcaption>
-						</figure>
-					</div>
-					<br>
-					<div class="row">
-						<div class="col-sm-2">
-							<div class="form-group">
-								<label for="prefix">คำนำหน้า</label>
-									<select type ="text"class="form-control" name="prefix" id="prefix" >
-									<!-- <option>--เลือก--</option> -->
-										<option>นาย</option>
-										<option>นาง</option>
-										<option>นางสาว</option>									
-									</select>
-							</div>
-						</div>
-						<div class="col-sm-5">
-							<div class="form-group">
-								<label for="firstname">ชื่อ</label>
-								<input type="text" class="form-control"  name="firstname" id="inputfirstname" required>
-							</div>
-						</div>
-						<div class="col-sm-5">
-							<div class="form-group">
-								<label for="lastname">นามสกุล</label>
-								<input type="text" class="form-control" name="lastname"  id="inputlastname" required>
-							</div>
-						</div>
-					</div>
-					<div class="row">	
-						<div class="col-sm-12">
-							<div class="form-group">
-								<label for="username">อีเมลล์</label>
-								<input type="text" class="form-control"  name="email" id="username"type="text" maxlength="255" placeholder="name@example.com" required>
-							</div>
-						</div>
-					</div>
-					<div class="row">	
-						<div class="col-sm-6">
-							<div class="form-group">
-								<label for="password">รหัสผ่าน</label>
-								<input type="password" class="form-control" maxlength="8" name="password" id="password" type="password" placeholder="อย่างน้อย 8 ตัว" required>
-							</div>
-						</div>	
-						<div class="col-sm-6">
-							<div class="form-group">
-								<label for="confirmpassword">ยืนยันรหัสผ่าน</label>
-								<input type="password" class="form-control" maxlength="8" name="password1" id="password" type="password" placeholder="ยืนยันรหัสผ่านอีกครั้ง" required>
-							</div>
-						</div>
-					</div>
-					<div class="row">	
-						<div class="col-sm-6">
-							<div class="form-group">
-								<label for="tel">เบอร์โทรศัพท์</label>
-								<input type="text" class="form-control" name="tel" id="tel"onkeypress="return check_number()" maxlength="10" required>
-							</div>
-						</div>
-					</div>
-					<br>
-					<div class="row">
-						<button type="submit" class="btn btn-dark btn-lg btn-block ">สมัครสมาชิก</button>
-					</div>
-					<br>
-				</form>
-			</div>
-		</div>
-	</div>
-</div>
+            // 	session_start();
+
+            // 	if (isset($_POST['username'])) {
+
+            // 		include('connection.php');
+
+            // 		$username = $_POST['username'];
+            // 		$password = $_POST['password'];
+            // 		$passwordenc = md5($password);
+
+            // 		$query = "SELECT * FROM user WHERE username = '$username' AND password = '$passwordenc'";
+
+            // 		$result = mysqli_query($conn, $query);
+
+            // 		if (mysqli_num_rows($result) == 1) {
+
+            // 			$row = mysqli_fetch_array($result);
+
+            // 			$_SESSION['userid'] = $row['id'];
+            // 			$_SESSION['user'] = $row['firstname'] . " " . $row['lastname'];
+            // 			$_SESSION['userlevel'] = $row['userlevel'];
+
+            // 			if ($_SESSION['userlevel'] == 'a') { 
+            // 				header("Location: admin_page.php");
+            // 			}
+
+            // 			if ($_SESSION['userlevel'] == 'm') {
+            // 				header("Location: stall.php");
+            // 			}
+            // 		} else {
+            // 			echo "<script>alert('User หรือ Password ไม่ถูกต้อง);</script>";
+            // 		}
+
+            // 	} else {
+            // 		header("Location: index.php");
+            // 	}
+
+
+            ?> 
+                <form action="login.php" method="post">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input type="email" class="form-control " name="email" placeholder="name@example.com" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input type="password" class="form-control" maxlength="8" name="password" placeholder="Password" required>
+                        </div>
+                    </div>
+                    <center><button type="submit" class="btn btn-dark btn-lg btn-block ">เข้าสู่ระบบ</button></center><br>
+                    <center><p><a href="#password1234" data-toggle="modal"  class="text-primary"data-dismiss="modal" aria-hidden="true">ลืมรหัสผ่าน?</a></p></center>
+                    <center><p class="text-danger">* สำหรับผู้ที่ประสงค์จะจองพื้นที่ขายสินค้าภายในตลาด *</p></center>
+                    <center><p class="text-danger">RMUTT Walking Street</p></center>
+                </form>
+            </div>
+        </div>
+    </div>
+</div> 
 <div class="navbar-nav ml-auto">
 	<div class="nav-item dropdown password1234-dropdown">
 		<div id="password1234" class="modal fade">			
@@ -356,6 +266,81 @@ a:hover {
 		</div>
 	</div>
 </div>
-</nav>
-</body>
-</html>
+
+<!-- regis Modal HTML -->
+<div id="register" class="modal fade fontss">
+    <div class="modal-dialog  modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">						
+                <h2><i class="fa fa-user-plus"></i>สมัครสมาชิก</h2>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="modal-body">
+            <img src="images/22.gif" class="card-img-top"  width="100%" height="200"alt="">
+                <form  id="userregister"name="register" method="get" action="register.php">
+                    <div class="row">		
+                        <div class="col-sm-12">
+                            <div class="form-group"> 
+                                <label for="prefix">คำนำหน้า</label>
+                                <select type ="text"class="form-control" name="prefix" id="prefix" >
+                                    <!-- <option>--เลือก--</option> -->
+                                    <option>-- กรุณาเลือก --</option>
+                                    <option>นาย</option>
+                                    <option>นาง</option>
+                                    <option>นางสาว</option>									
+                                </select>                                            
+                            </div>  
+                        </div> 
+                    </div>  
+                    <div class="row">	
+                        <div class="col-sm-6">          
+                            <div class="form-group">
+                                <label for="firstname">ชื่อ</label>
+                                <input type="text" class="form-control"  name="firstname" id="inputfirstname" required>
+                            </div> 
+                        </div> 
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="lastname">นามสกุล</label>
+                                <input type="text" class="form-control" name="lastname"  id="inputlastname" required>           
+                            </div>  
+                        </div>
+                    </div>
+                    <div class="row">    
+                        <div class="col-sm-12">       
+                            <div class="form-group">  
+                                <label for="username">อีเมลล์</label>
+                                <input type="text" class="form-control"  name="email" id="username"type="text" maxlength="255" placeholder="name@example.com" required>              
+                            </div> 
+                        </div>    
+                    </div>
+                    <div class="row">  
+                        <div class="col-sm-6">         
+                            <div class="form-group">                
+                                <label for="password">รหัสผ่าน</label>
+                                <input type="password" class="form-control" maxlength="8" name="password" id="password" type="password" placeholder="อย่างน้อย 8 ตัว" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">                
+                            <div class="form-group">                
+                                <label for="confirmpassword">ยืนยันรหัสผ่าน</label>
+                                <input type="password" class="form-control" maxlength="8" name="password1" id="password" type="password" placeholder="ยืนยันรหัสผ่านอีกครั้ง" required>               
+                            </div>
+                        </div>
+                    </div> 
+                    <div class="row">
+                        <div class="col-sm-6">               
+                            <div class="form-group">                
+                                <label for="tel">เบอร์โทรศัพท์</label>
+                                <input type="text" class="form-control" name="tel" id="tel"onkeypress="return check_number()" maxlength="10" required>
+                            </div>
+                        </div>  
+                    </div>    
+                    <div class="row">
+                        <button type="submit" class="btn btn-dark btn-lg btn-block">สมัครสมาชิก</button>
+                    </div>
+                </from>
+            </div>
+        </div>  
+    </div>
+</div>
