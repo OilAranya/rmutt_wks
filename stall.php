@@ -20,7 +20,7 @@
 			<br>
 			<h2 class="card-title"><center><U>จองพื้นที่เช่าขายสินค้า</U></center></h2>
 			<br>
-			<form name="instead" method="get" action="stall1.php">
+			<form name="instead" method="get" action="stallregister.php">
 				<div class="row">
 					<div class="col-sm-2">
 						<div class="form-group">
@@ -97,7 +97,7 @@
 				<div class="row">
 					<div class="col-sm-6">
 						<div class="form-group">
-						<p>จำนวนไฟ</p>
+							<p>จำนวนไฟ</p>
 							<select id="inputState" name="light" class="form-control">
 								<option selected>--กรุณาเลือก--</option>
 								<option value="10">1 ดวง </option>
@@ -108,8 +108,8 @@
 					</div>
 					<div class="col-sm-6">
 						<div class="form-group">
-						<p>จำนวนวัน</p>
-							<select id="inputState" name="day" class="form-control">
+							<p>จำนวนวัน</p>
+							<select id="inputState" name="day1" class="form-control">
 								<option selected>--กรุณาเลือก--</option>
 								<option>1 วัน</option>
 								<option>2 วัน</option>
@@ -122,11 +122,11 @@
 						<div class="form-group">
 							<p>ช่องทางการชำระเงิน</p>
 							<div class="custom-radio col-sm-10 mx-auto">
-								<input type="radio" id="customRadio1" name="customRadio1" class="form-control-input">
+								<input type="radio" id="customRadio1" name="customRadio1" class="form-control-input" value = "ชำระผ่านแอพธนาคาร">
 								<label class="form-control-label" for="form-control-Radio1">ชำระผ่านแอพธนาคาร</label>
 							</div>
 							<div class="custom-radio col-sm-10 mx-auto">						
-								<input type="radio" id="customRadio2" name="customRadio2" class="form-control-input">
+								<input type="radio" id="customRadio1" name="customRadio1" class="form-control-input" value = "ชำระผ่านเจ้าหน้าที่">
 								<label class="form-control-label" for="customRadio2">ชำระผ่านเจ้าหน้าที่</label>
 							</div>
 						</div>
@@ -137,7 +137,7 @@
 					<button type="submit"  class="btn btn-dark btn-lg btn-block ">บันทึก</button>
 				</div>
 				<br>
-			</form>
+			
 		</div>
 	</div>
 </div>

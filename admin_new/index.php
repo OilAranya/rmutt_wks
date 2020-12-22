@@ -14,7 +14,7 @@ if($_GET['action']=="Login"){//ผู้ใช้ล๊อกอินเข้�
 									$_SESSION["sys_fullname"]=$data["full_name"];
 									$_SESSION["sys_type"]=$data["user_type"];
 									
-									echo "<script type='text/javascript'>window.location.href = \"people.php\";</script>";
+									echo "<script type='text/javascript'>window.location.href = \"user_data.php\";</script>";
 
 				}
 }
@@ -75,9 +75,9 @@ body, html {
 <div class="col-md-4 col-md-offset-4" style="padding-top:20px;">
   <div class="panel panel-info">
   <!-- Default panel contents -->
-  <div class="panel-heading"><h4 class="form-signin-heading" align="center"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span> เข้าสู่ระบบเพื่อใช้งาน</h4></div>
+  <div class="panel-heading"><h4 class="form-signin-heading" align="center"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span> เข้าสู่ระบบ</h4></div>
   <div class="panel-body">
-  		<center><img src="images/login.png" class="img-responsive" width="120" /><br /></center>
+  		<center><img src="images/logo.jfif" class="img-responsive" width="120" /><br /></center>
   
 <form  class='form-horizontal' id='frm_login'  action="index.php?action=Login" method="post"  enctype='multipart/form-data' data-fv-framework='bootstrap'
 data-fv-icon-valid='glyphicon glyphicon-ok'
