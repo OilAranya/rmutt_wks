@@ -6,20 +6,18 @@ $page=$_GET['page'];
 $strSearch=$_GET['strSearch'];
 
 $auto_id=$_POST['auto_id'];
-$full_name=$_POST['full_name'];
-$user_name=$_POST['user_name'];
-$user_password=$_POST['user_password'];
-$user_type=$_POST['user_type'];
+$type_name=$_POST['type_name'];
+$remark=$_POST['remark'];
 if($submit=="OK"){
 if($Select_ID==""){
-$sql="INSERT  INTO  user set auto_id='".$auto_id."',full_name='".$full_name."',user_name='".$user_name."',user_password='".$user_password."',user_type='".$user_type."'";
+$sql="INSERT  INTO  type set auto_id='".$auto_id."',type_name='".$type_name."',remark='".$remark."'";
 }else{
-$sql="UPDATE user set full_name='".$full_name."',user_name='".$user_name."',user_password='".$user_password."',user_type='".$user_type."'  WHERE auto_id='".$Select_ID."'" ;
+$sql="UPDATE type set type_name='".$type_name."',remark='".$remark."'  WHERE auto_id='".$Select_ID."'" ;
 }
 mysqli_query($conn,$sql);
 }
 if ($submit=="DEL"){
-$sql="delete from user where auto_id ='".$Select_ID."'";
+$sql="delete from type where auto_id ='".$Select_ID."'";
 mysqli_query($conn,$sql);
 }
 ?>
@@ -39,7 +37,7 @@ mysqli_query($conn,$sql);
 <script src='js/bootbox.min.js'></script>
 <script>
 $(document).ready(function() {
-$('#frm_user').formValidation();
+$('#frm_type').formValidation();
 });
 function chkdel(id){
 if(confirm('Do you want to Delete >>> '+id+' <<<\r\nPlease... Confirm to Delete !!!  ')){
@@ -105,16 +103,14 @@ $Search=$_GET['Search'];
 $Search2=$_GET['Search2'];
 }
 ?>
-<form name="form1" method="post" action="user.php?show=OK&strSearch=Y" class='navbar-form navbar-left' role='search'>
+<form name="form1" method="post" action="food_new.php?show=OK&strSearch=Y" class='navbar-form navbar-left' role='search'>
 <div class='form-group' >
 <select name='Search2' class='form-control'>
-<option value="full_name" <?php if($Search2=="full_name"){ echo 'selected'; }?>>Full_name</option>
-<option value="user_name" <?php if($Search2=="user_name"){ echo 'selected'; }?>>User_name</option>
-<option value="user_password" <?php if($Search2=="user_password"){ echo 'selected'; }?>>User_password</option>
-<option value="user_type" <?php if($Search2=="user_type"){ echo 'selected'; }?>>User_type</option>
+<option value="full_name" <?php if($Search2=="full_name"){ echo 'selected'; }?>>ชื่อ นามสกุล</option>
+<option value="user_type" <?php if($Search2=="user_type"){ echo 'selected'; }?>>ประเภทเจ้าของร้าน</option>
 </select>
 <input name='Search' type='text' class='form-control' style='width:auto'  placeholder='Enter Keyword...'  value='<?php echo $Search?>' onFocus="this.value ='' ;">
-<button type='submit' class='btn btn-default' value='Search'>ค้นหา</button>
+<button type='submit' class='btn btn-default' value='Search'>Search</button>
 </div>
 </form>
 
@@ -122,9 +118,9 @@ $Search2=$_GET['Search2'];
 $limit = '25';
 
 if($strSearch=="Y"){
-$Qtotal = mysqli_query($conn,"select * from user Where ".$Search2." like '%".$Search."%'  ");
+$Qtotal = mysqli_query($conn,"select * from type Where ".$Search2." like '%".$Search."%'  ");
 }else{
-$Qtotal = mysqli_query($conn,"select * from user");
+$Qtotal = mysqli_query($conn,"select * from type");
 }
 
 $total_data = mysqli_num_rows($Qtotal);
@@ -155,18 +151,16 @@ printf(' | Page %d <br />',$page);
 <thead>
 <tr>
 <td align='center'><strong>ชื่อ นามสกุล </strong></td>
-<td align='center'><strong>User name </strong></td>
-<td align='center'><strong>User password </strong></td>
-<td align='center'><strong>ประเภทผู้ใช้ </strong></td>
-<td width="10%"><center><a href="user.php?submit=Add&show=" class='btn btn-success btn-md' role='button'>เพิ่ม</a></center></td>
+<td align='center'><strong>ประเภทเจ้าของร้าน </strong></td>
+<td width="10%"><center><a href="food_new.php?submit=Add&show=" class='btn btn-success btn-md' role='button'>เพิ่ม</a></center></td>
 </tr>
 </thead>
 <tbody>
 <?php 
 if($strSearch=="Y"){
-$Query = mysqli_query($conn,"select * from user Where ".$Search2." like '%".$Search."%'   order  by  auto_id DESC LIMIT $start,$limit");
+$Query = mysqli_query($conn,"select * from type Where ".$Search2." like '%".$Search."%'   order  by  auto_id DESC LIMIT $start,$limit");
 }else{
-$Query= mysqli_query($conn,"select * from user order  by  auto_id DESC LIMIT $start,$limit");
+$Query= mysqli_query($conn,"select * from type order  by  auto_id DESC LIMIT $start,$limit");
 }
 
 while($arr = mysqli_fetch_array($Query)){
@@ -174,12 +168,10 @@ $autoid = $arr['auto_id'];
 ?>
 <tr valign='top'>
 <td align='center'><?php echo $arr['full_name'] ?></td>
-<td align='center'><?php echo $arr['user_name'] ?></td>
-<td align='center'><?php echo $arr['user_password'] ?></td>
 <td align='center'><?php echo $arr['user_type'] ?></td>
 <td align="center">
-<a href="user.php?submit=Edit&Select_ID=<?php echo $autoid;?>"  title='Edit' class='btn btn-warning btn-xs'>แก้ไข</a>&nbsp;&nbsp;
-<a href="user.php?submit=DEL&show=OK&Select_ID=<?php echo $autoid;?>" title='Delete' class='confirm_delete btn btn-danger btn-xs' data-show="<?php echo $arr['auto_id'] ?>">ลบ</a>
+<a href="food_new.php?submit=Edit&Select_ID=<?php echo $autoid;?>"  title='Edit' class='btn btn-warning btn-xs'>แก้ไข</a>&nbsp;&nbsp;
+<a href="food_new.php?submit=DEL&show=OK&Select_ID=<?php echo $autoid;?>" title='Delete' class='confirm_delete btn btn-danger btn-xs' data-show="<?php echo $arr['auto_id'] ?>">ลบ</a>
 </td>
 </tr>
 <?php }?>
@@ -188,7 +180,7 @@ $autoid = $arr['auto_id'];
 
 <nav>
 <ul class='pagination'>
-<li <?php if($page==1) echo "class='disabled' ";?>><a href='user.php?page=<?php echo $page-1?>&Search=<?php echo$Search?>&Search2=<?php echo $Search2?>&strSearch=<?php echo$strSearch?>' aria-label='Previous'><span aria-hidden='true'>&laquo;</span></a></li>
+<li <?php if($page==1) echo "class='disabled' ";?>><a href='food_new.php?page=<?php echo $page-1?>&Search=<?php echo$Search?>&Search2=<?php echo $Search2?>&strSearch=<?php echo$strSearch?>' aria-label='Previous'><span aria-hidden='true'>&laquo;</span></a></li>
 
 <?php for($i=1;$i<=$total_page;$i++){
 
@@ -203,17 +195,17 @@ $i=$total_page-1;
 }
 
 ?>
-<li <?php if($page==$i) echo "class='active' ";?>><a href='user.php?page=<?php echo $i?>&Search=<?php echo $Search?>&Search2=<?php echo $Search2?>&strSearch=<?php echo $strSearch?>' ><?php echo $i?></a></li>
+<li <?php if($page==$i) echo "class='active' ";?>><a href='food_new.php?page=<?php echo $i?>&Search=<?php echo $Search?>&Search2=<?php echo $Search2?>&strSearch=<?php echo $strSearch?>' ><?php echo $i?></a></li>
 <?php }?>
 
-<li <?php if($page==$total_page) echo "class='disabled' ";?>><a href='user.php?page=<?php echo $page+1?>&Search=<?php echo $Search?>&Search2=<?php echo $Search2?>&strSearch=<?php echo $strSearch?>' aria-label='Next'><span aria-hidden='true'>&raquo;</span></a></li>
+<li <?php if($page==$total_page) echo "class='disabled' ";?>><a href='food_new.php?page=<?php echo $page+1?>&Search=<?php echo $Search?>&Search2=<?php echo $Search2?>&strSearch=<?php echo $strSearch?>' aria-label='Next'><span aria-hidden='true'>&raquo;</span></a></li>
 </ul>
 </nav>
 
 <?php }?>
 
 <?php  if($submit=="Add"){?>
-<form class='form-horizontal' id='frm_user' action="user.php?submit=OK&show=OK&Select_ID=" method="post"  enctype='multipart/form-data'data-fv-framework='bootstrap'
+<form class='form-horizontal' id='frm_type' action="food_new.php?submit=OK&show=OK&Select_ID=" method="post"  enctype='multipart/form-data'data-fv-framework='bootstrap'
 data-fv-icon-valid='glyphicon glyphicon-ok'
 data-fv-icon-invalid='glyphicon glyphicon-remove'
 data-fv-icon-validating='glyphicon glyphicon-refresh'>
@@ -226,34 +218,16 @@ data-fv-icon-validating='glyphicon glyphicon-refresh'>
 </div>
 
 <div class='form-group'>
-<label class='col-sm-5 control-label'>User name</label>
+<label class='col-sm-5 control-label'>ประเภทเจ้าของร้าน</label>
 <div class='col-sm-5' align='left'>
-<input name='user_name' id='user_name' type='text' class='form-control' data-fv-notempty='true' data-fv-notempty-message='Please Enter...'>
-</div>
-</div>
-
-<div class='form-group'>
-<label class='col-sm-5 control-label'>User password</label>
-<div class='col-sm-5' align='left'>
-<input name='user_password' id='user_password' type='text' class='form-control' data-fv-notempty='true' data-fv-notempty-message='Please Enter...'>
-</div>
-</div>
-
-<div class='form-group'>
-<label class='col-sm-5 control-label'>ประเภทผู้ใช้</label>
-<div class='col-sm-5' align='left'>
-<select name='user_type' id='user_type' class='form-control' data-fv-notempty='true' data-fv-notempty-message='Please Enter...'>
-<option value='Admin'>Admin</option>
-<option value='Leader'>Leader</option>
-<option value='User'>User</option>
-</select>
+<textarea name='user_type' cols='50' rows='4' id='user_type' class='form-control' data-fv-notempty='false' data-fv-notempty-message='Please Enter...'></textarea>
 </div>
 </div>
 
 <div class='form-group'>
 <div class='col-sm-offset-2 col-sm-10'>
 <button type='submit' class='btn btn-success'>Insert Data</button>
-<button type='button' class='btn btn-danger' onClick="document.location.href='user.php?show=OK'">Cancle</button>
+<button type='button' class='btn btn-danger' onClick="document.location.href='food_new.php?show=OK'">Cancle</button>
 </div>
 </div>
 </form>
@@ -261,12 +235,12 @@ data-fv-icon-validating='glyphicon glyphicon-refresh'>
 
 
 <?php  if($submit=="Edit"){
-$sql="select * from user  where auto_id ='".$Select_ID."'  ";
+$sql="select * from type  where auto_id ='".$Select_ID."'  ";
 $tem = mysqli_query($conn,$sql);
 $row3=mysqli_fetch_array($tem);
 ?>
 
-<form class='form-horizontal' id='frm_user' action="user.php?submit=OK&show=OK&Select_ID=<?php echo $Select_ID?>" method="post" enctype='multipart/form-data'>
+<form class='form-horizontal' id='frm_type' action="food_new.php?submit=OK&show=OK&Select_ID=<?php echo $Select_ID?>" method="post" enctype='multipart/form-data'>
 <input type='hidden' name='auto_id' value="<?php echo $row3['auto_id']?>">
 <div class='form-group'>
 <label class='col-sm-5 control-label'>Auto_id</label>
@@ -283,34 +257,16 @@ $row3=mysqli_fetch_array($tem);
 </div>
 
 <div class='form-group'>
-<label class='col-sm-5 control-label'>User name</label>
+<label class='col-sm-5 control-label'>ประเภทเจ้าของร้าน</label>
 <div class='col-sm-5' align='left'>
-<input name='user_name' id='user_name' type='text' size='50' value='<?php echo $row3["user_name"]?>' class='form-control' data-fv-notempty='true' data-fv-notempty-message='Please Enter...'>
-</div>
-</div>
-
-<div class='form-group'>
-<label class='col-sm-5 control-label'>User password</label>
-<div class='col-sm-5' align='left'>
-<input name='user_password' id='user_password' type='text' size='50' value='<?php echo $row3["user_password"]?>' class='form-control' data-fv-notempty='true' data-fv-notempty-message='Please Enter...'>
-</div>
-</div>
-
-<div class='form-group'>
-<label class='col-sm-5 control-label'>ประเภทผู้ใช้</label>
-<div class='col-sm-5' align='left'>
-<select name='user_type' id='user_type' class='form-control' data-fv-notempty='true' data-fv-notempty-message='Please Enter...'>
-<option value='Admin' <?php if($row3['user_type']=='Admin') echo 'selected';?>>Admin</option>
-<option value='Leader' <?php if($row3['user_type']=='Leader') echo 'selected';?>>Leader</option>
-<option value='User' <?php if($row3['user_type']=='User') echo 'selected';?>>User</option>
-</select>
+<textarea name='user_type' cols='50' rows='4' id='user_type' class='form-control' data-fv-notempty='false' data-fv-notempty-message='Please Enter...'><?php echo $row3['user_type']?></textarea>
 </div>
 </div>
 
 <div class='form-group'>
 <div class='col-sm-offset-2 col-sm-10'>
 <button type='submit' class='btn btn-success'>Update Data</button>
-<button type='button' class='btn btn-danger' onClick="document.location.href='user.php?show=OK'">Cancle</button>
+<button type='button' class='btn btn-danger' onClick="document.location.href='food_new.php?show=OK'">Cancle</button>
 </div>
 </div>
 </form>

@@ -30,7 +30,7 @@ if($_GET['action']=="Logout"){//ผู้ใช้ออกจากรุบบ
 
 ?>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>เข้าสู่ระบบเพื่อใช้งาน</title>
+<title>RMUTT WKS Admin</title>
 
 <link rel='stylesheet' type='text/css' href='css/bootstrap.min.css' />
 <script type='text/javascript' src='js/jquery.js'></script>

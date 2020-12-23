@@ -38,18 +38,18 @@
 
 <li <?php if($nav=='1') echo 'class=\'active\'';?>><a href='user_data.php?nav=1'><span class='glyphicon glyphicon-cog'></span> ข้อมูลรายชื่อ</a></li>
 <li <?php if($nav=='2') echo 'class=\'active\'';?>><a href='stall.php?nav=2'><span class='glyphicon glyphicon-cog'></span> ข้อมูลการจอง</a></li>
-<li <?php if($nav=='4') echo 'class=\'active\'';?>><a href='#'><span class='glyphicon glyphicon-cog'></span> ข้อมูลชำระเงิน</a></li>
+<li <?php if($nav=='4') echo 'class=\'active\'';?>><a href='receipt.php'><span class='glyphicon glyphicon-cog'></span> ข้อมูลชำระเงิน</a></li>
 <li <?php if($nav=='9') echo 'class=\'active\'';?> role="presentation" class="dropdown" >
 					<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class='glyphicon glyphicon-cog'></span> 
 					  หมวดหมู่ร้านค้า <span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu">
 							<li><a href="food.php" >อาหาร</a></li>
-							<li><a href="reports.php?nav=9&report=2" >เสื้อผ้า</a></li>
-							<li><a href="reports.php?nav=9&report=3" >รองเท้า</a></li> 
-							<li><a href="reports.php?nav=9&report=4" >กระเป๋า</a></li>
-							<li><a href="reports.php?nav=9&report=5" >เครื่องประดับ</a></li>
-							<li><a href="reports.php?nav=9&report=6" >สัตว์/ต้นไม้</a></li>
+							<li><a href="#?nav=9&report=2" >เสื้อผ้า</a></li>
+							<li><a href="#?nav=9&report=3" >รองเท้า</a></li> 
+							<li><a href="#?nav=9&report=4" >กระเป๋า</a></li>
+							<li><a href="#?nav=9&report=5" >เครื่องประดับ</a></li>
+							<li><a href="#?nav=9&report=6" >สัตว์/ต้นไม้</a></li>
 							<li><a href="#" >อุปกรณ์อิเล็กทรอนิกส์</a></li>
 					</ul>
 </li>

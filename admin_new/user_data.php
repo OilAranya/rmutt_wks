@@ -106,8 +106,8 @@ $Search2=$_GET['Search2'];
 <form name="form1" method="post" action="user_new.php?show=OK&strSearch=Y" class='navbar-form navbar-left' role='search'>
 <div class='form-group' >
 <select name='Search2' class='form-control'>
-<option value="type_name" <?php if($Search2=="type_name"){ echo 'selected'; }?>>Name</option>
-<option value="remark" <?php if($Search2=="remark"){ echo 'selected'; }?>>Remark</option>
+<option value="full_name" <?php if($Search2=="full_name"){ echo 'selected'; }?>>ชื่อ นามสกุล</option>
+<option value="user_type" <?php if($Search2=="user_type"){ echo 'selected'; }?>>ประเภทเจ้าของร้าน</option>
 </select>
 <input name='Search' type='text' class='form-control' style='width:auto'  placeholder='Enter Keyword...'  value='<?php echo $Search?>' onFocus="this.value ='' ;">
 <button type='submit' class='btn btn-default' value='Search'>Search</button>
@@ -150,8 +150,8 @@ printf(' | Page %d <br />',$page);
 <table class='table table-bordered tablesorter'>
 <thead>
 <tr>
-<td align='center'><strong>ลำดับ </strong></td>
-<td align='center'><strong>ชื่อ-นามสกุล </strong></td>
+<td align='center'><strong>ชื่อ นามสกุล </strong></td>
+<td align='center'><strong>ประเภทเจ้าของร้าน </strong></td>
 <td width="10%"><center><a href="user_new.php?submit=Add&show=" class='btn btn-success btn-md' role='button'>เพิ่ม</a></center></td>
 </tr>
 </thead>
@@ -167,8 +167,8 @@ while($arr = mysqli_fetch_array($Query)){
 $autoid = $arr['auto_id'];
 ?>
 <tr valign='top'>
-<td align='center'><?php echo $arr['type_name'] ?></td>
-<td align='center'><?php echo $arr['remark'] ?></td>
+<td align='center'><?php echo $arr['full_name'] ?></td>
+<td align='center'><?php echo $arr['user_type'] ?></td>
 <td align="center">
 <a href="user_new.php?submit=Edit&Select_ID=<?php echo $autoid;?>"  title='Edit' class='btn btn-warning btn-xs'>แก้ไข</a>&nbsp;&nbsp;
 <a href="user_new.php?submit=DEL&show=OK&Select_ID=<?php echo $autoid;?>" title='Delete' class='confirm_delete btn btn-danger btn-xs' data-show="<?php echo $arr['auto_id'] ?>">ลบ</a>
@@ -211,16 +211,16 @@ data-fv-icon-invalid='glyphicon glyphicon-remove'
 data-fv-icon-validating='glyphicon glyphicon-refresh'>
 
 <div class='form-group'>
-<label class='col-sm-5 control-label'>Name</label>
+<label class='col-sm-5 control-label'>ชื่อ นามสกุล</label>
 <div class='col-sm-5' align='left'>
-<input name='name' id='name' type='text' class='form-control' data-fv-notempty='true' data-fv-notempty-message='Please Enter...'>
+<input name='full_name' id='full_name' type='text' class='form-control' data-fv-notempty='true' data-fv-notempty-message='Please Enter...'>
 </div>
 </div>
 
 <div class='form-group'>
-<label class='col-sm-5 control-label'>Remark</label>
+<label class='col-sm-5 control-label'>ประเภทเจ้าของร้าน</label>
 <div class='col-sm-5' align='left'>
-<textarea name='remark' cols='50' rows='4' id='remark' class='form-control' data-fv-notempty='false' data-fv-notempty-message='Please Enter...'></textarea>
+<textarea name='user_type' cols='50' rows='4' id='user_type' class='form-control' data-fv-notempty='false' data-fv-notempty-message='Please Enter...'></textarea>
 </div>
 </div>
 
@@ -250,16 +250,16 @@ $row3=mysqli_fetch_array($tem);
 </div>
 
 <div class='form-group'>
-<label class='col-sm-5 control-label'>Name</label>
+<label class='col-sm-5 control-label'>ชื่อ นามสกุล</label>
 <div class='col-sm-5' align='left'>
-<input name='type_name' id='type_name' type='text' size='50' value='<?php echo $row3["type_name"]?>' class='form-control' data-fv-notempty='true' data-fv-notempty-message='Please Enter...'>
+<input name='full_name' id='full_name' type='text' size='50' value='<?php echo $row3["full_name"]?>' class='form-control' data-fv-notempty='true' data-fv-notempty-message='Please Enter...'>
 </div>
 </div>
 
 <div class='form-group'>
-<label class='col-sm-5 control-label'>Remark</label>
+<label class='col-sm-5 control-label'>ประเภทเจ้าของร้าน</label>
 <div class='col-sm-5' align='left'>
-<textarea name='remark' cols='50' rows='4' id='remark' class='form-control' data-fv-notempty='false' data-fv-notempty-message='Please Enter...'><?php echo $row3['remark']?></textarea>
+<textarea name='user_type' cols='50' rows='4' id='user_type' class='form-control' data-fv-notempty='false' data-fv-notempty-message='Please Enter...'><?php echo $row3['user_type']?></textarea>
 </div>
 </div>
 

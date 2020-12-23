@@ -108,10 +108,13 @@ $Search2=$_GET['Search2'];
 <form name="form1" method="post" action="user.php?show=OK&strSearch=Y" class='navbar-form navbar-left' role='search'>
 <div class='form-group' >
 <select name='Search2' class='form-control'>
-<option value="full_name" <?php if($Search2=="full_name"){ echo 'selected'; }?>>Full_name</option>
-<option value="user_name" <?php if($Search2=="user_name"){ echo 'selected'; }?>>User_name</option>
-<option value="user_password" <?php if($Search2=="user_password"){ echo 'selected'; }?>>User_password</option>
-<option value="user_type" <?php if($Search2=="user_type"){ echo 'selected'; }?>>User_type</option>
+<option value="full_name" <?php if($Search2=="full_name"){ echo 'selected'; }?>>ชื่อ นามสกุล</option>
+<option value="shop_name" <?php if($Search2=="shop_name"){ echo 'selected'; }?>>ชื่อร้านค้า</option>
+<option value="type_shop" <?php if($Search2=="type_shop"){ echo 'selected'; }?>>หมวดหมู่</option>
+<option value="num_panels" <?php if($Search2=="num_panels"){ echo 'selected'; }?>>จำนวนแผง</option>
+<option value="num_light" <?php if($Search2=="type_shop"){ echo 'selected'; }?>>จำนวนไฟ</option>
+<option value="num_day" <?php if($Search2=="type_shop"){ echo 'selected'; }?>>จำนวนวัน</option>
+<option value="status" <?php if($Search2=="status"){ echo 'selected'; }?>>สถานะ</option>
 </select>
 <input name='Search' type='text' class='form-control' style='width:auto'  placeholder='Enter Keyword...'  value='<?php echo $Search?>' onFocus="this.value ='' ;">
 <button type='submit' class='btn btn-default' value='Search'>ค้นหา</button>
@@ -155,10 +158,13 @@ printf(' | Page %d <br />',$page);
 <thead>
 <tr>
 <td align='center'><strong>ชื่อ นามสกุล </strong></td>
-<td align='center'><strong>User name </strong></td>
-<td align='center'><strong>User password </strong></td>
-<td align='center'><strong>ประเภทผู้ใช้ </strong></td>
-<td width="10%"><center><a href="user.php?submit=Add&show=" class='btn btn-success btn-md' role='button'>เพิ่ม</a></center></td>
+<td align='center'><strong>ชื่อร้านค้า </strong></td>
+<td align='center'><strong>หมวดหมู่ </strong></td>
+<td align='center'><strong>จำนวนแผง </strong></td>
+<td align='center'><strong>จำนวนไฟ </strong></td>
+<td align='center'><strong>จำนวนวัน </strong></td>
+<td align='center'><strong>สถานะ </strong></td>
+<td width="10%"><center><a href="stall_new.php?submit=Add&show=" class='btn btn-success btn-md' role='button'>เพิ่ม</a></center></td>
 </tr>
 </thead>
 <tbody>
@@ -174,12 +180,15 @@ $autoid = $arr['auto_id'];
 ?>
 <tr valign='top'>
 <td align='center'><?php echo $arr['full_name'] ?></td>
-<td align='center'><?php echo $arr['user_name'] ?></td>
-<td align='center'><?php echo $arr['user_password'] ?></td>
-<td align='center'><?php echo $arr['user_type'] ?></td>
+<td align='center'><?php echo $arr['shop_name'] ?></td>
+<td align='center'><?php echo $arr['type_shop'] ?></td>
+<td align='center'><?php echo $arr['num_panels'] ?></td>
+<td align='center'><?php echo $arr['num_light'] ?></td>
+<td align='center'><?php echo $arr['num_day'] ?></td>
+<td align='center'><?php echo $arr['status'] ?></td>
 <td align="center">
-<a href="user.php?submit=Edit&Select_ID=<?php echo $autoid;?>"  title='Edit' class='btn btn-warning btn-xs'>แก้ไข</a>&nbsp;&nbsp;
-<a href="user.php?submit=DEL&show=OK&Select_ID=<?php echo $autoid;?>" title='Delete' class='confirm_delete btn btn-danger btn-xs' data-show="<?php echo $arr['auto_id'] ?>">ลบ</a>
+<a href="stall_new.php?submit=Edit&Select_ID=<?php echo $autoid;?>"  title='Edit' class='btn btn-warning btn-xs'>แก้ไข</a>&nbsp;&nbsp;
+<a href="stall_new.php?submit=DEL&show=OK&Select_ID=<?php echo $autoid;?>" title='Delete' class='confirm_delete btn btn-danger btn-xs' data-show="<?php echo $arr['auto_id'] ?>">ลบ</a>
 </td>
 </tr>
 <?php }?>
@@ -225,30 +234,51 @@ data-fv-icon-validating='glyphicon glyphicon-refresh'>
 </div>
 </div>
 
-<!-- <div class='form-group'>
-<label class='col-sm-5 control-label'>User name</label>
+<div class='form-group'>
+<label class='col-sm-5 control-label'>ชื่อร้านค้า</label>
 <div class='col-sm-5' align='left'>
-<input name='user_name' id='user_name' type='text' class='form-control' data-fv-notempty='true' data-fv-notempty-message='Please Enter...'>
+<input name='shop_name' id='shop_name' type='text' class='form-control' data-fv-notempty='true' data-fv-notempty-message='Please Enter...'>
 </div>
 </div>
 
 <div class='form-group'>
-<label class='col-sm-5 control-label'>User password</label>
+<label class='col-sm-5 control-label'>หมวดหมู่</label>
 <div class='col-sm-5' align='left'>
-<input name='user_password' id='user_password' type='text' class='form-control' data-fv-notempty='true' data-fv-notempty-message='Please Enter...'>
+<input name='type_shop' id='type_shop' type='text' class='form-control' data-fv-notempty='true' data-fv-notempty-message='Please Enter...'>
 </div>
 </div>
 
 <div class='form-group'>
-<label class='col-sm-5 control-label'>ประเภทผู้ใช้</label>
+<label class='col-sm-5 control-label'>จำนวนแผง</label>
 <div class='col-sm-5' align='left'>
-<select name='user_type' id='user_type' class='form-control' data-fv-notempty='true' data-fv-notempty-message='Please Enter...'>
-<option value='Admin'>Admin</option>
+<input name='num_panels' id='num_panels' type='text' class='form-control' data-fv-notempty='true' data-fv-notempty-message='Please Enter...'>
+</div>
+</div>
+
+<div class='form-group'>
+<label class='col-sm-5 control-label'>จำนวนไฟ</label>
+<div class='col-sm-5' align='left'>
+<input name='num_light' id='num_light' type='text' class='form-control' data-fv-notempty='true' data-fv-notempty-message='Please Enter...'>
+</div>
+</div>
+
+<div class='form-group'>
+<label class='col-sm-5 control-label'>จำนวนวัน</label>
+<div class='col-sm-5' align='left'>
+<input name='num_day' id='num_day' type='text' class='form-control' data-fv-notempty='true' data-fv-notempty-message='Please Enter...'>
+</div>
+</div>
+
+<div class='form-group'>
+<label class='col-sm-5 control-label'>สถานะ</label>
+<div class='col-sm-5' align='left'>
+<select name='status' id='status' class='form-control' data-fv-notempty='true' data-fv-notempty-message='Please Enter...'>
+<!-- <option value='Admin'>Admin</option>
 <option value='Leader'>Leader</option>
-<option value='User'>User</option>
+<option value='User'>User</option> -->
 </select>
 </div>
-</div> -->
+</div>
 
 <div class='form-group'>
 <div class='col-sm-offset-2 col-sm-10'>
@@ -276,43 +306,57 @@ $row3=mysqli_fetch_array($tem);
 </div>
 
 <div class='form-group'>
-<label class='col-sm-5 control-label'>ลำดับ</label>
-<div class='col-sm-5' align='left'>
-<input name='full_name' id='full_name' type='text' size='50' value='<?php echo $row3["full_name"]?>' class='form-control' data-fv-notempty='true' data-fv-notempty-message='Please Enter...'>
-</div>
-</div>
-
-<div class='form-group'>
 <label class='col-sm-5 control-label'>ชื่อ นามสกุล</label>
 <div class='col-sm-5' align='left'>
 <input name='full_name' id='full_name' type='text' size='50' value='<?php echo $row3["full_name"]?>' class='form-control' data-fv-notempty='true' data-fv-notempty-message='Please Enter...'>
 </div>
 </div>
 
-<!-- <div class='form-group'>
-<label class='col-sm-5 control-label'>User name</label>
+<div class='form-group'>
+<label class='col-sm-5 control-label'>ชื่อร้านค้า</label>
 <div class='col-sm-5' align='left'>
-<input name='user_name' id='user_name' type='text' size='50' value='<?php echo $row3["user_name"]?>' class='form-control' data-fv-notempty='true' data-fv-notempty-message='Please Enter...'>
+<input name='shop_name' id='shop_name' type='text' size='50' value='<?php echo $row3["shop_name"]?>' class='form-control' data-fv-notempty='true' data-fv-notempty-message='Please Enter...'>
 </div>
 </div>
 
 <div class='form-group'>
-<label class='col-sm-5 control-label'>User password</label>
+<label class='col-sm-5 control-label'>หมวดหมู่</label>
 <div class='col-sm-5' align='left'>
-<input name='user_password' id='user_password' type='text' size='50' value='<?php echo $row3["user_password"]?>' class='form-control' data-fv-notempty='true' data-fv-notempty-message='Please Enter...'>
+<input name='type_shop' id='type_shop' type='text' size='50' value='<?php echo $row3["type_shop"]?>' class='form-control' data-fv-notempty='true' data-fv-notempty-message='Please Enter...'>
 </div>
 </div>
 
 <div class='form-group'>
-<label class='col-sm-5 control-label'>ประเภทผู้ใช้</label>
+<label class='col-sm-5 control-label'>จำนวนแผง</label>
 <div class='col-sm-5' align='left'>
-<select name='user_type' id='user_type' class='form-control' data-fv-notempty='true' data-fv-notempty-message='Please Enter...'>
-<option value='Admin' <?php if($row3['user_type']=='Admin') echo 'selected';?>>Admin</option>
+<input name='num_panels' id='num_panels' type='text' size='50' value='<?php echo $row3["num_panels"]?>' class='form-control' data-fv-notempty='true' data-fv-notempty-message='Please Enter...'>
+</div>
+</div>
+
+<div class='form-group'>
+<label class='col-sm-5 control-label'>จำนวนไฟ</label>
+<div class='col-sm-5' align='left'>
+<input name='num_light' id='num_light' type='text' size='50' value='<?php echo $row3["num_light"]?>' class='form-control' data-fv-notempty='true' data-fv-notempty-message='Please Enter...'>
+</div>
+</div>
+
+<div class='form-group'>
+<label class='col-sm-5 control-label'>จำนวนวัน</label>
+<div class='col-sm-5' align='left'>
+<input name='num_day' id='num_day' type='text' size='50' value='<?php echo $row3["num_day"]?>' class='form-control' data-fv-notempty='true' data-fv-notempty-message='Please Enter...'>
+</div>
+</div>
+
+<div class='form-group'>
+<label class='col-sm-5 control-label'>สถานะ</label>
+<div class='col-sm-5' align='left'>
+<select name='status' id='status' class='form-control' data-fv-notempty='true' data-fv-notempty-message='Please Enter...'>
+<!-- <option value='Admin' <?php if($row3['user_type']=='Admin') echo 'selected';?>>Admin</option>
 <option value='Leader' <?php if($row3['user_type']=='Leader') echo 'selected';?>>Leader</option>
-<option value='User' <?php if($row3['user_type']=='User') echo 'selected';?>>User</option>
+<option value='User' <?php if($row3['user_type']=='User') echo 'selected';?>>User</option> -->
 </select>
 </div>
-</div> -->
+</div>
 
 <div class='form-group'>
 <div class='col-sm-offset-2 col-sm-10'>

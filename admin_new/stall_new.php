@@ -156,11 +156,13 @@ printf(' | Page %d <br />',$page);
 <tr>
 <td align='center'><strong>ชื่อ </strong></td>
 <td align='center'><strong>นามสกุล </strong></td>
-<td align='center'><strong>User name </strong></td>
-<td align='center'><strong>User password </strong></td>
-<td align='center'><strong>เบอร์โทรศัพท์ </strong></td>
-<td align='center'><strong>ประเภทผู้ใช้ </strong></td>
-<td width="8%"><a href="user_data.php?submit=Add&show=" class='btn btn-success btn-md' role='button'>Add New</a></td>
+<td align='center'><strong>ชื่อร้านค้า </strong></td>
+<td align='center'><strong>หมวดหมู่ </strong></td>
+<td align='center'><strong>จำนวนแผง</strong></td>
+<td align='center'><strong>จำนวนไฟ </strong></td>
+<td align='center'><strong>จำนวนวัน </strong></td>
+<td align='center'><strong>สถานะ </strong></td>
+<td width="8%"><a href="stall.php?submit=Add&show=" class='btn btn-success btn-md' role='button'>Add New</a></td>
 </tr>
 </thead>
 <tbody>
@@ -175,13 +177,13 @@ while($arr = mysqli_fetch_array($Query)){
 $autoid = $arr['auto_id'];
 ?>
 <tr valign='top'>
-<td align='center'><?php echo $arr['first_name'] ?></td>
-<td align='center'><?php echo $arr['last_name'] ?></td>
-<td align='center'><?php echo $arr['user_name'] ?></td>
-<td align='center'><?php echo $arr['user_password'] ?></td>
-<td align='center'><?php echo $arr['user_phonenumber
-'] ?></td>
-<td align='center'><?php echo $arr['user_type'] ?></td>
+<td align='center'><?php echo $arr['full_name'] ?></td>
+<td align='center'><?php echo $arr['shop_name'] ?></td>
+<td align='center'><?php echo $arr['type_shop'] ?></td>
+<td align='center'><?php echo $arr['num_panels'] ?></td>
+<td align='center'><?php echo $arr['num_light'] ?></td>
+<td align='center'><?php echo $arr['num_day'] ?></td>
+<td align='center'><?php echo $arr['status'] ?></td>
 <td align="center">
 <a href="user_data.php?submit=Edit&Select_ID=<?php echo $autoid;?>"  title='Edit' class='btn btn-warning btn-xs'>Edit</a>&nbsp;&nbsp;
 <a href="user_data.php?submit=DEL&show=OK&Select_ID=<?php echo $autoid;?>" title='Delete' class='confirm_delete btn btn-danger btn-xs' data-show="<?php echo $arr['auto_id'] ?>">Del</a>
@@ -224,47 +226,61 @@ data-fv-icon-invalid='glyphicon glyphicon-remove'
 data-fv-icon-validating='glyphicon glyphicon-refresh'>
 
 <div class='form-group'>
-<label class='col-sm-5 control-label'>ชื่อ </label>
+<label class='col-sm-5 control-label'>ชื่อ นามสกุล</label>
 <div class='col-sm-5' align='left'>
 <input name='full_name' id='full_name' type='text' class='form-control' data-fv-notempty='true' data-fv-notempty-message='Please Enter...'>
 </div>
 </div>
 
 <div class='form-group'>
-<label class='col-sm-5 control-label'>นามสกุล </label>
+<label class='col-sm-5 control-label'>ชื่อร้านค้า</label>
 <div class='col-sm-5' align='left'>
-<input name='full_name' id='full_name' type='text' class='form-control' data-fv-notempty='true' data-fv-notempty-message='Please Enter...'>
+<input name='shop_name' id='shop_name' type='text' class='form-control' data-fv-notempty='true' data-fv-notempty-message='Please Enter...'>
 </div>
 </div>
 
 <div class='form-group'>
-<label class='col-sm-5 control-label'>User name</label>
+<label class='col-sm-5 control-label'>หมวดหมู่</label>
 <div class='col-sm-5' align='left'>
-<input name='user_name' id='user_name' type='text' class='form-control' data-fv-notempty='true' data-fv-notempty-message='Please Enter...'>
+<select name='type_shop' id='type_shop' class='form-control' data-fv-notempty='true' data-fv-notempty-message='Please Enter...'>
+<option value='Food'>อาหาร</option>
+<option value='Fashion'>เสื้อผ้า</option>
+<option value='Shoes'>รองเท้า</option>
+<option value='Bag'>กระเป๋า</option>
+<option value='Accessories'>เครื่องประดับ</option>
+<option value='Nature'>สัตว์/ต้นไม้</option>
+<option value='Electronic'>อุปกรณ์อิเล็กทรอนิกส์</option>
+</select>
 </div>
 </div>
 
 <div class='form-group'>
-<label class='col-sm-5 control-label'>User password</label>
+<label class='col-sm-5 control-label'>จำนวนแผง</label>
 <div class='col-sm-5' align='left'>
-<input name='user_password' id='user_password' type='text' class='form-control' data-fv-notempty='true' data-fv-notempty-message='Please Enter...'>
+<input name='num_panels' id='num_panels' type='text' class='form-control' data-fv-notempty='true' data-fv-notempty-message='Please Enter...'>
 </div>
 </div>
 
 <div class='form-group'>
-<label class='col-sm-5 control-label'>เบอร์โทรศัพท์ </label>
+<label class='col-sm-5 control-label'>จำนวนไฟ</label>
 <div class='col-sm-5' align='left'>
-<input name='user_phonenumber' id='user_phonenumber' type='text' class='form-control' data-fv-notempty='true' data-fv-notempty-message='Please Enter...'>
+<input name='num_light' id='num_light' type='text' class='form-control' data-fv-notempty='true' data-fv-notempty-message='Please Enter...'>
 </div>
 </div>
 
 <div class='form-group'>
-<label class='col-sm-5 control-label'>ประเภทผู้ใช้</label>
+<label class='col-sm-5 control-label'>จำนวนวัน</label>
 <div class='col-sm-5' align='left'>
-<select name='user_type' id='user_type' class='form-control' data-fv-notempty='true' data-fv-notempty-message='Please Enter...'>
-<option value='Admin'>Admin</option>
-<option value='Leader'>ผู้ค้าทั่วไป</option>
-<option value='User'>นักศึกษา</option>
+<input name='num_day' id='num_day' type='text' class='form-control' data-fv-notempty='true' data-fv-notempty-message='Please Enter...'>
+</div>
+</div>
+
+<div class='form-group'>
+<label class='col-sm-5 control-label'>สถานะ</label>
+<div class='col-sm-5' align='left'>
+<select name='status' id='status' class='form-control' data-fv-notempty='true' data-fv-notempty-message='Please Enter...'>
+<option value='Approve'>อนุมัติ</option>
+<option value='Wait_for_approval'>รออนุมัติ</option>
 </select>
 </div>
 </div>
@@ -272,7 +288,7 @@ data-fv-icon-validating='glyphicon glyphicon-refresh'>
 <div class='form-group'>
 <div class='col-sm-offset-2 col-sm-10'>
 <button type='submit' class='btn btn-success'>Insert Data</button>
-<button type='button' class='btn btn-danger' onClick="document.location.href='user_data.php?show=OK'">Cancle</button>
+<button type='button' class='btn btn-danger' onClick="document.location.href='stall_new.php?show=OK'">Cancle</button>
 </div>
 </div>
 </form>
@@ -295,55 +311,68 @@ $row3=mysqli_fetch_array($tem);
 </div>
 
 <div class='form-group'>
-<label class='col-sm-5 control-label'>ชื่อ </label>
+<label class='col-sm-5 control-label'>ชื่อ นามสกุล</label>
 <div class='col-sm-5' align='left'>
 <input name='full_name' id='full_name' type='text' size='50' value='<?php echo $row3["full_name"]?>' class='form-control' data-fv-notempty='true' data-fv-notempty-message='Please Enter...'>
 </div>
 </div>
 
 <div class='form-group'>
-<label class='col-sm-5 control-label'>นามสกุล </label>
+<label class='col-sm-5 control-label'>ชื่อร้านค้า</label>
 <div class='col-sm-5' align='left'>
-<input name='full_name' id='full_name' type='text' size='50' value='<?php echo $row3["full_name"]?>' class='form-control' data-fv-notempty='true' data-fv-notempty-message='Please Enter...'>
+<input name='shop_name' id='shop_name' type='text' size='50' value='<?php echo $row3["shop_name"]?>' class='form-control' data-fv-notempty='true' data-fv-notempty-message='Please Enter...'>
 </div>
 </div>
 
 <div class='form-group'>
-<label class='col-sm-5 control-label'>User name</label>
+<label class='col-sm-5 control-label'>หมวดหมู่</label>
 <div class='col-sm-5' align='left'>
-<input name='user_name' id='user_name' type='text' size='50' value='<?php echo $row3["user_name"]?>' class='form-control' data-fv-notempty='true' data-fv-notempty-message='Please Enter...'>
-</div>
-</div>
-
-<div class='form-group'>
-<label class='col-sm-5 control-label'>User password</label>
-<div class='col-sm-5' align='left'>
-<input name='user_password' id='user_password' type='text' size='50' value='<?php echo $row3["user_password"]?>' class='form-control' data-fv-notempty='true' data-fv-notempty-message='Please Enter...'>
-</div>
-</div>
-
-<div class='form-group'>
-<label class='col-sm-5 control-label'>เบอร์โทรศัพท์ </label>
-<div class='col-sm-5' align='left'>
-<input name='user_phonenumber' id='user_phonenumber' type='text' size='50' value='<?php echo $row3["user_phonenumber"]?>' class='form-control' data-fv-notempty='true' data-fv-notempty-message='Please Enter...'>
-</div>
-</div>
-
-<div class='form-group'>
-<label class='col-sm-5 control-label'>ประเภทผู้ใช้</label>
-<div class='col-sm-5' align='left'>
-<select name='user_type' id='user_type' class='form-control' data-fv-notempty='true' data-fv-notempty-message='Please Enter...'>
-<option value='Admin' <?php if($row3['user_type']=='Admin') echo 'selected';?>>Admin</option>
-<option value='Leader' <?php if($row3['user_type']=='general') echo 'selected';?>>ผู้ค้าทั่วไป</option>
-<option value='User' <?php if($row3['user_type']=='student') echo 'selected';?>>นักศึกษา</option>
+<select name='type_shop' id='type_shop' class='form-control' data-fv-notempty='true' data-fv-notempty-message='Please Enter...'>
+<option value='Food' <?php if($row3['type_shop']=='Admin') echo 'selected';?>>อาหาร</option>
+<option value='Fashion' <?php if($row3['type_shop']=='Admin') echo 'selected';?>>เสื้อผ้า</option>
+<option value='Shoes' <?php if($row3['type_shop']=='Admin') echo 'selected';?>>รองเท้า</option>
+<option value='Bag' <?php if($row3['type_shop']=='Admin') echo 'selected';?>>กระเป๋า</option>
+<option value='Accessories' <?php if($row3['type_shop']=='Admin') echo 'selected';?>>เครื่องประดับ</option>
+<option value='Nature' <?php if($row3['type_shop']=='Admin') echo 'selected';?>>สัตว์/ต้นไม้</option>
+<option value='Electronic' <?php if($row3['type_shop']=='Admin') echo 'selected';?>>อุปกรณ์อิเล็กทรอนิกส์</option>
 </select>
+</div>
+</div>
+
+<div class='form-group'>
+<label class='col-sm-5 control-label'>จำนวนแผง</label>
+<div class='col-sm-5' align='left'>
+<input name='num_panels' id='num_panels' type='text' size='50' value='<?php echo $row3["num_panels"]?>' class='form-control' data-fv-notempty='true' data-fv-notempty-message='Please Enter...'>
+</div>
+</div>
+
+<div class='form-group'>
+<label class='col-sm-5 control-label'>จำนวนไฟ</label>
+<div class='col-sm-5' align='left'>
+<input name='num_light' id='num_light' type='text' size='50' value='<?php echo $row3["num_light"]?>' class='form-control' data-fv-notempty='true' data-fv-notempty-message='Please Enter...'>
+</div>
+</div>
+
+<div class='form-group'>
+<label class='col-sm-5 control-label'>จำนวนวัน</label>
+<div class='col-sm-5' align='left'>
+<input name='num_day' id='num_day' type='text' size='50' value='<?php echo $row3["num_day"]?>' class='form-control' data-fv-notempty='true' data-fv-notempty-message='Please Enter...'>
+</div>
+</div>
+
+<div class='form-group'>
+<label class='col-sm-5 control-label'>สถานะ</label>
+<div class='col-sm-5' align='left'>
+<select name='status' id='status' class='form-control' data-fv-notempty='true' data-fv-notempty-message='Please Enter...'>
+<option value='Approve' <?php if($row3['status']=='Approve') echo 'selected';?>>อนุมัติ</option>
+<option value='Wait_for_approval' <?php if($row3['status']=='Wait_for_approval') echo 'selected';?>>รออนุมัติ</option>
 </div>
 </div>
 
 <div class='form-group'>
 <div class='col-sm-offset-2 col-sm-10'>
 <button type='submit' class='btn btn-success'>Update Data</button>
-<button type='button' class='btn btn-danger' onClick="document.location.href='user_data.php?show=OK'">Cancle</button>
+<button type='button' class='btn btn-danger' onClick="document.location.href='stall_new.php?show=OK'">Cancle</button>
 </div>
 </div>
 </form>
