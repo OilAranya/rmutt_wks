@@ -20,35 +20,42 @@
         </div><br><br>
         <div class="row row-cols-10 row-cols-md-10">
             <div class="col mb-4">
+            <a href="#" class="btn btn-elearning bg-usability">
                 <div class="card">
                     <img src="images/ลงทะเบียน.png" class="card-img-top">
                     <div class="card-body">
-                        <center><h3><a href="#" class="mb-0 text-black">ข้อมูลลงทะเบียน</a></h3></center>
+                        <center><h3><font color="#0099FF">ข้อมูลลงทะเบียน</font></h3></center>
                     </div>
                 </div>
+                </a>
             </div>
+            
             <div class="col mb-4">
-                <div class="card">
-                    <img src="images/ร้านค้า.jpg" class="card-img-top" >
-                    <div class="card-body">
-                        <center><h3><a href="#" class="mb-0 text-black">ข้อมูลร้านค้า</a></h3></center>
+                <a href="#" class="btn btn-elearning bg-usability">
+                    <div class="card">
+                        <img src="images/ร้านค้า.jpg" class="card-img-top" >
+                        <div class="card-body">
+                            <center><h3><font color="#0099FF">ข้อมูลร้านค้า</font></h3></center>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
+           
             <div class="col mb-4">
-                <div class="card">
-                    <img src="images/การจอง.jpg" class="card-img-top">
-                    <div class="card-body">
-                        <center><h3><a href="#" class="mb-0 text-black">ข้อมูลการจอง</a></h3></center>
+                <a href="#" class="btn btn-elearning bg-usability">
+                    <div class="card">
+                        <img src="images/การจอง.jpg" class="card-img-top">
+                        <div class="card-body">
+                            <center><h3><font color="#0099FF">ข้อมูลการจอง</font></h3></center>
+                        </div>
                     </div>
-                </div>
-            </div>
+                </a>
+            </div>    
         </div>
-</section>
 
+</section>
 <footer>
 </footer>
-
 </body>
 </html>
 
