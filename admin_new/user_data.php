@@ -1,4 +1,4 @@
-<?php 
+<!-- <?php 
 include_once "connDB.php";
 $submit=$_GET['submit'];
 $Select_ID=$_GET['Select_ID'];
@@ -20,7 +20,7 @@ if ($submit=="DEL"){
 $sql="delete from type where auto_id ='".$Select_ID."'";
 mysqli_query($conn,$sql);
 }
-?>
+?> -->
 <html xmlns="http://www.w3.org/1999/xhtml" > 
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -195,17 +195,17 @@ $i=$total_page-1;
 }
 
 ?>
-<li <?php if($page==$i) echo "class='active' ";?>><a href='user_new.php?page=<?php echo $i?>&Search=<?php echo $Search?>&Search2=<?php echo $Search2?>&strSearch=<?php echo $strSearch?>' ><?php echo $i?></a></li>
+<li <?php if($page==$i) echo "class='active' ";?>><a href='#?page=<?php echo $i?>&Search=<?php echo $Search?>&Search2=<?php echo $Search2?>&strSearch=<?php echo $strSearch?>' ><?php echo $i?></a></li>
 <?php }?>
 
-<li <?php if($page==$total_page) echo "class='disabled' ";?>><a href='user_new.php?page=<?php echo $page+1?>&Search=<?php echo $Search?>&Search2=<?php echo $Search2?>&strSearch=<?php echo $strSearch?>' aria-label='Next'><span aria-hidden='true'>&raquo;</span></a></li>
+<li <?php if($page==$total_page) echo "class='disabled' ";?>><a href='#?page=<?php echo $page+1?>&Search=<?php echo $Search?>&Search2=<?php echo $Search2?>&strSearch=<?php echo $strSearch?>' aria-label='Next'><span aria-hidden='true'>&raquo;</span></a></li>
 </ul>
 </nav>
 
 <?php }?>
 
 <?php  if($submit=="Add"){?>
-<form class='form-horizontal' id='frm_type' action="user_new.php?submit=OK&show=OK&Select_ID=" method="post"  enctype='multipart/form-data'data-fv-framework='bootstrap'
+<form class='form-horizontal' id='frm_type' action=#?submit=OK&show=OK&Select_ID=" method="post"  enctype='multipart/form-data'data-fv-framework='bootstrap'
 data-fv-icon-valid='glyphicon glyphicon-ok'
 data-fv-icon-invalid='glyphicon glyphicon-remove'
 data-fv-icon-validating='glyphicon glyphicon-refresh'>

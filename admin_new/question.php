@@ -87,7 +87,7 @@ window.location.href = e.target.href;
 <div class='panel panel-success'>
 <div class='panel-heading' style='text-align:center'>
 
-<b style='font-size:30px;'>ข้อมูลชำระเงิน</b>
+<b style='font-size:30px;'>แจ้งปัญหา</b>
 </div>
 
 <div class='panel-body' align='center'>
@@ -105,14 +105,11 @@ $Search=$_GET['Search'];
 $Search2=$_GET['Search2'];
 }
 ?>
-<form name="form1" method="post" action="#?show=OK&strSearch=Y" class='navbar-form navbar-left' role='search'>
+<form name="form1" method="post" action="#" class='navbar-form navbar-left' role='search'>
 <div class='form-group' >
 <select name='Search2' class='form-control'>
-<option value="date" <?php if($Search2=="date"){ echo 'selected'; }?>>วัน/เดือน/ปี</option>
 <option value="full_name" <?php if($Search2=="full_name"){ echo 'selected'; }?>>ชื่อ นามสกุล</option>
-<option value="shop_name" <?php if($Search2=="shop_name"){ echo 'selected'; }?>>ชื่อร้านค้า</option>
-<option value="type_shop" <?php if($Search2=="type_shop"){ echo 'selected'; }?>>หมวดหมู่</option>
-<option value="status" <?php if($Search2=="status"){ echo 'selected'; }?>>สถานะ</option>
+<option value="shop_name" <?php if($Search2=="shop_name"){ echo 'selected'; }?>>อีเมล</option>
 </select>
 <input name='Search' type='text' class='form-control' style='width:auto'  placeholder='Enter Keyword...'  value='<?php echo $Search?>' onFocus="this.value ='' ;">
 <button type='submit' class='btn btn-default' value='Search'>ค้นหา</button>
@@ -155,11 +152,11 @@ printf(' | Page %d <br />',$page);
 <table class='table table-bordered tablesorter'>
 <thead>
 <tr>
-<td align='center'><strong>วัน/เดือน/ปี </strong></td>
 <td align='center'><strong>ชื่อ นามสกุล </strong></td>
-<td align='center'><strong>ชื่อร้านค้า </strong></td>
-<td align='center'><strong>หมวดหมู่ </strong></td>
-<td align='center'><strong>สถานะ </strong></td>
+<td align='center'><strong>อีเมล </strong></td>
+<td align='center'><strong>เบอร์โทรศัพท์ </strong></td>
+<td align='center'><strong>ปัญหา </strong></td>
+<td align='center'><strong>ตอบกลับ </strong></td>
 <!-- <td width="10%"><center><a href="user.php?submit=Add&show=" class='btn btn-success btn-md' role='button'>เพิ่ม</a></center></td> -->
 </tr>
 </thead>
@@ -175,15 +172,14 @@ while($arr = mysqli_fetch_array($Query)){
 $autoid = $arr['auto_id'];
 ?>
 <tr valign='top'>
-<td align='center'><?php echo $arr['date'] ?></td>
 <td align='center'><?php echo $arr['full_name'] ?></td>
-<td align='center'><?php echo $arr['shop_name'] ?></td>
-<td align='center'><?php echo $arr['type_shop'] ?></td>
-<td align='center'><?php echo $arr['status'] ?></td>
-<!-- <td align="center">
-<a href="user.php?submit=Edit&Select_ID=<?php echo $autoid;?>"  title='Edit' class='btn btn-warning btn-xs'>แก้ไข</a>&nbsp;&nbsp;
-<a href="user.php?submit=DEL&show=OK&Select_ID=<?php echo $autoid;?>" title='Delete' class='confirm_delete btn btn-danger btn-xs' data-show="<?php echo $arr['auto_id'] ?>">ลบ</a>
-</td> -->
+<td align='center'><?php echo $arr['username'] ?></td>
+<td align='center'><?php echo $arr['user_phonenumber'] ?></td>
+<td align='center'><?php echo $arr['question'] ?></td>
+<td align="center">
+<a href="answer.php"  title='Edit' class='btn btn-success btn-md' role='button'>ตอบกลับ</a>&nbsp;&nbsp;
+
+</td>
 </tr>
 <?php }?>
 </tbody>
@@ -215,8 +211,8 @@ $i=$total_page-1;
 
 <?php }?>
 
-<?php  if($submit=="Add"){?>
-<form class='form-horizontal' id='frm_user' action="#?submit=OK&show=OK&Select_ID=" method="post"  enctype='multipart/form-data'data-fv-framework='bootstrap'
+<!-- <?php  if($submit=="Add"){?>
+<form class='form-horizontal' id='frm_user' action="user.php?submit=OK&show=OK&Select_ID=" method="post"  enctype='multipart/form-data'data-fv-framework='bootstrap'
 data-fv-icon-valid='glyphicon glyphicon-ok'
 data-fv-icon-invalid='glyphicon glyphicon-remove'
 data-fv-icon-validating='glyphicon glyphicon-refresh'>
@@ -229,16 +225,16 @@ data-fv-icon-validating='glyphicon glyphicon-refresh'>
 </div>
 
 <div class='form-group'>
-<label class='col-sm-5 control-label'>ชื่อร้านค้า</label>
+<label class='col-sm-5 control-label'>อีเมล</label>
 <div class='col-sm-5' align='left'>
-<input name='shop_name' id='shop_name' type='text' class='form-control' data-fv-notempty='true' data-fv-notempty-message='Please Enter...'>
+<input name='username' id='username' type='text' class='form-control' data-fv-notempty='true' data-fv-notempty-message='Please Enter...'>
 </div>
 </div>
 
 <div class='form-group'>
-<label class='col-sm-5 control-label'>หมวดหมู่</label>
+<label class='col-sm-5 control-label'>เบอร์โทรศัพท์</label>
 <div class='col-sm-5' align='left'>
-<input name='type_shop' id='type_shop' type='text' class='form-control' data-fv-notempty='true' data-fv-notempty-message='Please Enter...'>
+<input name='user_phonenumber' id='user_phonenumber' type='text' class='form-control' data-fv-notempty='true' data-fv-notempty-message='Please Enter...'>
 </div>
 </div>
 
@@ -255,11 +251,11 @@ data-fv-icon-validating='glyphicon glyphicon-refresh'>
 <div class='form-group'>
 <div class='col-sm-offset-2 col-sm-10'>
 <button type='submit' class='btn btn-success'>Insert Data</button>
-<button type='button' class='btn btn-danger' onClick="document.location.href='#?show=OK'">Cancle</button>
+<button type='button' class='btn btn-danger' onClick="document.location.href='user.php?show=OK'">Cancle</button>
 </div>
 </div>
 </form>
-<?php }?>
+<?php }?> -->
 
 
 <?php  if($submit=="Edit"){

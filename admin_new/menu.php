@@ -55,7 +55,7 @@
 </li>
 <li <?php if($nav=='4') echo 'class=\'active\'';?>><a href='map.php?nav=5'><span class='glyphicon glyphicon-cog'></span> แผนที่</a></li>
 <li <?php if($nav=='4') echo 'class=\'active\'';?>><a href='#'><span class='glyphicon glyphicon-cog'></span> รีวิว</a></li>
-<li <?php if($nav=='4') echo 'class=\'active\'';?>><a href='#'><span class='glyphicon glyphicon-cog'></span> แจ้งปัญหา</a></li>	
+<li <?php if($nav=='4') echo 'class=\'active\'';?>><a href='question.php'><span class='glyphicon glyphicon-cog'></span> แจ้งปัญหา</a></li>	
 
 
 	
