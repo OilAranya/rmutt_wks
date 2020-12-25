@@ -180,7 +180,7 @@ $autoid = $arr['auto_id'];
 
 <nav>
 <ul class='pagination'>
-<li <?php if($page==1) echo "class='disabled' ";?>><a href='user_new.php?page=<?php echo $page-1?>&Search=<?php echo$Search?>&Search2=<?php echo $Search2?>&strSearch=<?php echo$strSearch?>' aria-label='Previous'><span aria-hidden='true'>&laquo;</span></a></li>
+<li <?php if($page==1) echo "class='disabled' ";?>><a href='#.php?page=<?php echo $page-1?>&Search=<?php echo$Search?>&Search2=<?php echo $Search2?>&strSearch=<?php echo$strSearch?>' aria-label='Previous'><span aria-hidden='true'>&laquo;</span></a></li>
 
 <?php for($i=1;$i<=$total_page;$i++){
 

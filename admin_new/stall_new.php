@@ -177,7 +177,8 @@ while($arr = mysqli_fetch_array($Query)){
 $autoid = $arr['auto_id'];
 ?>
 <tr valign='top'>
-<td align='center'><?php echo $arr['full_name'] ?></td>
+<td align='center'><?php echo $arr['firstname'] ?></td>
+<td align='center'><?php echo $arr['lastname'] ?></td>
 <td align='center'><?php echo $arr['shop_name'] ?></td>
 <td align='center'><?php echo $arr['type_shop'] ?></td>
 <td align='center'><?php echo $arr['num_panels'] ?></td>

@@ -180,7 +180,7 @@ $autoid = $arr['auto_id'];
 
 <nav>
 <ul class='pagination'>
-<li <?php if($page==1) echo "class='disabled' ";?>><a href='food_new.php?page=<?php echo $page-1?>&Search=<?php echo$Search?>&Search2=<?php echo $Search2?>&strSearch=<?php echo$strSearch?>' aria-label='Previous'><span aria-hidden='true'>&laquo;</span></a></li>
+<li <?php if($page==1) echo "class='disabled' ";?>><a href='#?page=<?php echo $page-1?>&Search=<?php echo$Search?>&Search2=<?php echo $Search2?>&strSearch=<?php echo$strSearch?>' aria-label='Previous'><span aria-hidden='true'>&laquo;</span></a></li>
 
 <?php for($i=1;$i<=$total_page;$i++){
 
@@ -195,10 +195,10 @@ $i=$total_page-1;
 }
 
 ?>
-<li <?php if($page==$i) echo "class='active' ";?>><a href='food_new.php?page=<?php echo $i?>&Search=<?php echo $Search?>&Search2=<?php echo $Search2?>&strSearch=<?php echo $strSearch?>' ><?php echo $i?></a></li>
+<li <?php if($page==$i) echo "class='active' ";?>><a href='#?page=<?php echo $i?>&Search=<?php echo $Search?>&Search2=<?php echo $Search2?>&strSearch=<?php echo $strSearch?>' ><?php echo $i?></a></li>
 <?php }?>
 
-<li <?php if($page==$total_page) echo "class='disabled' ";?>><a href='food_new.php?page=<?php echo $page+1?>&Search=<?php echo $Search?>&Search2=<?php echo $Search2?>&strSearch=<?php echo $strSearch?>' aria-label='Next'><span aria-hidden='true'>&raquo;</span></a></li>
+<li <?php if($page==$total_page) echo "class='disabled' ";?>><a href='#?page=<?php echo $page+1?>&Search=<?php echo $Search?>&Search2=<?php echo $Search2?>&strSearch=<?php echo $strSearch?>' aria-label='Next'><span aria-hidden='true'>&raquo;</span></a></li>
 </ul>
 </nav>
 

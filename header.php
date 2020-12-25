@@ -339,7 +339,7 @@ a:hover {
                     <div class="row">
                         <button type="submit" class="btn btn-dark btn-lg btn-block">สมัครสมาชิก</button>
                     </div>
-                </from>
+                </form>
             </div>
         </div>  
     </div>
